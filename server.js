@@ -2,7 +2,7 @@ var express = require('express');
 var openai = require('openai');
 var app = express();
 var https = require('https');
-var TOKEN = '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';
+var TOKEN = 'TOKEN'
 app.use(express.static('public'));
 app.use('/static', express.static('public'));
 var bodyParser = require('body-parser')
@@ -35,16 +35,11 @@ function post_openai(prompt, ores){
 }
 
 app.get("/test",function(req,res){
-    console.log("test");
-    console.log(req.body.text);
     post_openai(req.body.text, res);
     
 })
 
 app.post('/generateimage', function(req, res){
-    console.log("get images!")
-    console.log(req.body.text);
-
     post_openai(req.body.text, res)
 
 })
