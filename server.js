@@ -5,8 +5,10 @@ var https = require('https');
 var TOKEN = 'TOKEN'
 app.use(express.static('public'));
 app.use('/static', express.static('public'));
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var axios = require('axios');
+var fs = require('fs');
+TOKEN=fs.readFileSync("./.token",{encoding:'utf8',flag:'r'})
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
